@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maden Analiz Mevzuatları</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #ustKisim {
+            height: 25vh;
+            background-color: #3498db;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+        }
+
+        #beyazKisim {
+            height: 50vh;
+            background-color: #ffffff;
+            padding: 20px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #aramaCubugu {
+            width: 18cm;
+            padding: 8px;
+            margin-bottom: 0.1px;
+            box-sizing: border-box;
+            background-color: #ffffff; /* Beyaz renk */
+            color: #3498db; /* Mavi renk */
+            border: none;
+            border-radius: 25px; /* Oval çerçeve */
+        }
+
+        #butonGrubu {
+            display: flex;
+            flex-direction: column; /* Butonları alt alta sırala */
+            align-items: center; /* Butonları ortala */
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        button {
+            width: 20cm;
+            height: 1cm;
+            margin: 0.43cm;
+            background-color: #397dea; /* Mavi renk */
+            color: #ffffff; /* Beyaz renk */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="ustKisim">
+        Maden İstatistiği
+    </div>
+    <div id="beyazKisim">
+        <input type="text" id="aramaCubugu" placeholder="Ara..." oninput="filtreleButonlar()">
+        <div id="butonGrubu">
+            <button>
+                MADEN ANALİZ RAPORU 
+            </button>
+            <button>
+                Buton 2
+            </button>
+            <button>
+                Buton 3
+            </button>
+            <button>
+                Buton 4
+            </button>
+            <button>
+                Buton 5
+            </button>
+            <button>
+                Buton 6
+            </button>
+        </div>
+        <ol>
+            <!-- Listeleme içeriği -->
+        </ol>
+    </div>
+
+    <script>
+        class ButonGrubu {
+            constructor() {
+                this.butonlar = document.getElementById("butonGrubu").getElementsByTagName("button");
+            }
+    
+            filtrele(aramaKelimesi) {
+                for (var i = 0; i < this.butonlar.length; i++) {
+                    var butonMetni = this.butonlar[i].innerText.toUpperCase();
+                    if (butonMetni.includes(aramaKelimesi)) {
+                        this.butonlar[i].style.display = "block";
+                    } else {
+                        this.butonlar[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    
+        class ButonGrubuProxy {
+            constructor() {
+                this.butonGrubu = new ButonGrubu();
+            }
+    
+            filtrele(aramaKelimesi) {
+                // Ekstra işlemler eklenebilir
+                console.log("Arama işlemi başlatılıyor...");
+                this.butonGrubu.filtrele(aramaKelimesi);
+                // Ekstra işlemler eklenebilir
+                console.log("Arama işlemi tamamlandı.");
+            }
+        }
+    
+        function filtreleButonlar() {
+            var aramaKelimesi = document.getElementById("aramaCubugu").value.toUpperCase();
+            var butonGrubuProxy = new ButonGrubuProxy();
+            butonGrubuProxy.filtrele(aramaKelimesi);
+        }
+    </script>
+</body>
+</html>

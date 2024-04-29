@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Sayfası</title>
+    <style>
+        
+        html, body {
+            height: 100%;
+            margin: 0vh;
+        }
+        
+        body {
+            background-image: url('Resim2.png');
+            background-size: cover;
+            background-position: center;
+            height: 0vh; /* veya başka bir değer, örneğin 200vh, 1000px, vs. */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px;
+            margin-right: 5px;
+            position: absolute;
+            top: 12;
+            left: 1;
+        }
+        #anaSayfaBtn:hover {
+    border: 2px solid green; /* Yeşil kenarlık */
+    border-radius: 30px; /* Kenar yuvarlaklığı (isteğe bağlı) */
+    padding: 30px; /* Buton içeriğini kenardan uzaklaştırmak için isteğe bağlı padding ekleyebilirsiniz */
+    }
+            
+        #kurumsal:hover {
+    border: 2px solid green; /* Yeşil kenarlık */
+    border-radius: 30px; /* Kenar yuvarlaklığı (isteğe bağlı) */
+    padding: 30px; /* Buton içeriğini kenardan uzaklaştırmak için isteğe bağlı padding ekleyebilirsiniz */
+    }
+
+    #HARİTALAR:hover {
+    border: 2px solid green; /* Yeşil kenarlık */
+    border-radius: 30px; /* Kenar yuvarlaklığı (isteğe bağlı) */
+    padding: 30px; /* Buton içeriğini kenardan uzaklaştırmak için isteğe bağlı padding ekleyebilirsiniz */
+    }
+    #mevzuatlar:hover {
+    border: 2px solid green; /* Yeşil kenarlık */
+    border-radius: 30px; /* Kenar yuvarlaklığı (isteğe bağlı) */
+    padding: 30px; /* Buton içeriğini kenardan uzaklaştırmak için isteğe bağlı padding ekleyebilirsiniz */
+    }
+
+    #hakkında:hover {
+    border: 2px solid green; /* Yeşil kenarlık */
+    border-radius: 30px; /* Kenar yuvarlaklığı (isteğe bağlı) */
+    padding: 30px; /* Buton içeriğini kenardan uzaklaştırmak için isteğe bağlı padding ekleyebilirsiniz */
+    }
+
+
+        button {
+            background-color: transparent;
+            border: none;
+            padding: 50px;
+            cursor: pointer;
+            color: white;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        #altinButon {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            background-color: gold;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            color: black;
+        }
+
+        .scroll-container {
+            overflow: auto;
+        }
+
+        #dikdortgen {
+            display: none;
+            width: 10cm;
+            height: 14cm;
+            background-color: white;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button id="altinButon" onclick="toggleDikdortgen()">Altın</button>
+
+    <div class="header">
+        <div></div>
+        <div class="buttons">
+            <button id="anaSayfaBtn">Ana Sayfa</button>
+            <button id="kurumsal">Kurumsal</button>
+            <button id="HARİTALAR">Harita</button>
+            <button id="mevzuatlar">Mevzuatlar</button>
+            <button id="hakkında">Hakkında</button>
+        </div>
+    </div>
+
+    <div class="scroll-container">
+        <div id="dikdortgen"></div>
+        <!-- Sayfanın içeriği buraya gelecek -->
+        
+    </div>
+    
+    <script>
+        function toggleDikdortgen() {
+            var dikdortgen = document.getElementById('dikdortgen');
+            if (dikdortgen.style.display === 'none') {
+                dikdortgen.style.display = 'block';
+            } else {
+                dikdortgen.style.display = 'none';
+            }
+        }
+        document.getElementById('HARİTALAR').addEventListener('click', function() {
+            // Ana sayfa butonuna tıklandığında yönlendirilecek sayfanın URL'sini belirtin
+            window.location.href = 'harita.html';
+        });
+
+        document.getElementById('anaSayfaBtn').addEventListener('click', function() {
+            // Ana sayfa butonuna tıklandığında yönlendirilecek sayfanın URL'sini belirtin
+            window.location.href = 'anasayfa.html';
+        });
+        document.getElementById('kurumsal').addEventListener('click', function() {
+            // Ana sayfa butonuna tıklandığında yönlendirilecek sayfanın URL'sini belirtin
+            window.location.href = 'kurumsal.html';
+        });
+        
+        document.getElementById('mevzuatlar').addEventListener('click', function() {
+            // Ana sayfa butonuna tıklandığında yönlendirilecek sayfanın URL'sini belirtin
+            window.location.href = 'mevzuat.html';
+        });
+
+        document.getElementById('hakkında').addEventListener('click', function() {
+            // Ana sayfa butonuna tıklandığında yönlendirilecek sayfanın URL'sini belirtin
+            window.location.href = 'hakkında.html';
+        });
+        
+    </script>
+</body>
+</html>

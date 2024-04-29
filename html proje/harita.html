@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maden Analizi Haritası</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 750px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Component interface
+    class MiningComponent {
+        constructor(lat, lng, name) {
+            this.lat = lat;
+            this.lng = lng;
+            this.name = name;
+        }
+
+        displayInfo() {
+            return `<b>${this.name}</b>`;
+        }
+    }
+
+    // Leaf class
+    class Mine extends MiningComponent {
+        constructor(lat, lng, name, mineralComposition) {
+            super(lat, lng, name);
+            this.mineralComposition = mineralComposition;
+        }
+
+        displayInfo() {
+            return super.displayInfo() + `<br>${this.mineralComposition}`;
+        }
+    }
+
+    // Composite class
+    class MiningRegion extends MiningComponent {
+        constructor(lat, lng, name) {
+            super(lat, lng, name);
+            this.children = [];
+        }
+
+        add(component) {
+            this.children.push(component);
+        }
+
+        displayInfo() {
+            const info = super.displayInfo();
+            const childInfo = this.children.map(child => child.displayInfo()).join('<br>');
+            return `${info}<br>${childInfo}`;
+        }
+    }
+
+    var map = L.map('map').setView([39.9334, 32.8597], 6); // Türkiye'nin merkezi koordinatları
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Create composite mining regions
+    var istanbulRegion = new MiningRegion(41.0082, 28.9784, 'İstanbul Maden Bölgesi');
+    var konyaRegion = new MiningRegion(37.8716, 32.4840, 'Konya Maden Bölgesi');
+    var izmirRegion = new MiningRegion(38.4192, 27.1287, 'İzmir Maden Bölgesi');
+
+    // Create leaf mines
+    var istanbulMine = new Mine(41.0082, 28.9784, 'İstanbul Maden', 'linyit %21 <br> altın %12,1 <br> boksit %3,32 <br> gümüş %23,2 <br> bakır%13,4 <br> platin%1,2');
+    var konyaMine = new Mine(37.8716, 32.4840, 'Konya Maden', 'linyit %21 <br> altın %12,1 <br> boksit %3,32 <br> gümüş %23,2 <br> bakır%13,4 <br> platin%1,2');
+    var izmirMine = new Mine(38.4192, 27.1287, 'İzmir Maden', 'linyit %21 <br> altın %12,1 <br> boksit %3,32 <br> gümüş %23,2 <br> bakır%13,4 <br> platin%1,2');
+
+    // Add leaf mines to mining regions
+    istanbulRegion.add(istanbulMine);
+    konyaRegion.add(konyaMine);
+    izmirRegion.add(izmirMine);
+
+    // Add mining regions to the map
+    [istanbulRegion, konyaRegion, izmirRegion].forEach(region => {
+        L.marker([region.lat, region.lng]).addTo(map)
+            .bindPopup(region.displayInfo());
+    });
+
+</script>
+
+</body>
+</html>

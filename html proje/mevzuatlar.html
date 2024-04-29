@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mevzuatları</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #ustKisim {
+            height: 25vh;
+            background-color: #3498db;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+        }
+
+        #beyazKisim {
+            height: 75vh;
+            background-color: #ffffff;
+            padding: 20px;
+            line-height: 1.6;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .resimAlani {
+            width: 48%;
+            margin-bottom: 20px;
+        }
+
+        .resimAlani img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .textAlani {
+            width: 35%;
+            margin-left: 2%; /* Adjust the margin as needed */
+        }
+    </style>
+</head>
+<body>
+    <div id="ustKisim">
+        Maden Analiz Bilgileri
+    </div>
+    <div id="beyazKisim">
+        <div class="resimAlani">
+            <img src="resim kısmı.jpg" alt="">
+        </div>
+        <div class="textAlani">
+            <p>Yıllara baktığımızda bor madeni üretimi kapasitesinin genel olarak hep bir artış halinde olduğunu söyleyebiliriz </p>
+            <p>2019 ve 2021 yıllarında genel olarak bir artışın olduğunu ve sebebi ise cam ve seramik sanayide kullanıldığını söyleyebiliriz</p>                                                                                                                </p>
+            <p>2023 yılı için veriler revize edilecektir.                                                                                                            </p>
+
+        </div>
+
+        <div class="resimAlani">
+            <img src="resim kısmı 2.jpg" alt="Resim 2">
+        </div>
+        <div class="textAlani">
+            <p>Altının sürekli olarak artış eğiliminde olması gerek ham maddesi hemde çıkarılımı konusunda çok fazla emek sarf edilmekte. </p>
+            <p>Altın dünya çapında en güvenilir yatırım aracı olarak kullanılmakta buda fiyatların artmasını etkiliyor </p>
+            <p>Güvenli liman olması sebebiyle yıllık cari bazda çok yüksek değerde ülkelere getiri sağlamakta. </p>
+        </div>
+
+
+        <div class="resimAlani">
+            <img src="resim kısmı 3.jpg" alt="Resim 1">
+        </div>
+        <div class="textAlani">
+            <p>Ülkeler bazlı altın dağılımı daire grafiğinde görülmektedir.</p>
+            <p>Dağılımın genel olarak baktığımızda bir örüntüsü olmadağı karışık bir şekilde dağıldığı görülmektedir.</p>
+            <p>Dağılımın çarpık ve girift olması geleceği hakkında bir tahmin sağlamıyor.</p>
+        </div>
+
+
+        <div class="resimAlani">
+            <img src="resim kısmı 4.jpg" alt="Resim 1">
+        </div>
+        <div class="textAlani">
+            <p>Gümüş üretimine bakıldığında çok değerli ve sert bir maden olması gerek mücevher gerek diğer aletlerin ucu için çok çeşitli kullanımı vardır</p>
+            <p>Yıl bazlı dünyada genel olarak bir artış eğiliminde olması büyük bir piyasa olduğunu gösteriyor. </p>
+            <p>Genel olarak afrika kıtasında çıkarılıyor olması bu payda büyüktür.</p>
+     
+        </div>
+
+
+        <div class="resimAlani">
+            <img src="resim kısmı 5.jpg" alt="Resim 1">
+        </div>
+        <div class="textAlani">
+            <p>Bakır üretimi genel olarak belli bir skalada çıkarılmakta buda ülkenin ihtiyacını genel olarak karşılandığını gösteriyor </p>
+            <p>Çok çeşitli kullanım alanı genel olarak kablolarda ve veri iletiminde kullanılmakta  1</p>
+            <p>Çıkarımının azalacak olması öngörülmekte.</p>
+        </div>
+
+
+        <div class="resimAlani">
+            <img src="resim kısmı 6.jpg" alt="Resim 1">
+        </div>
+        <div class="textAlani">
+            <p>Çinkonun genel dağılımı ülkeler bazında bu şekildedir.</p>
+            <p>Çinkonun genel dağılımında Çin zirvede görünüyor.</p>
+        </div>
+
+
+
+        <div class="resimAlani">
+            <img src="resim kısmı 7.jpg" alt="Resim 1">
+        </div>
+        <div class="textAlani">
+            <p>Demir üretimi her geçen yıl artmaktadır bunun sebebi çok çok çeşit kullanım alanıdır.</p>
+            <p>Dünyanın her yerinde madeni bulunmakta buda bir diğer etken .</p>
+            <p>Artışın daha fazla olacağı öngörülmektedir.</p>
+
+        </div>
+
+
+        <div class="resimAlani">
+            <img src="resim kısmı 8.jpg" alt="Resim 1">
+        </div>
+        <div class="textAlani">
+            <p>Kromun ülkemizde çıkarılması grafikteki gibi ithalatın çok az olmasını hatta ihracatı arttırmakta.</p>
+            <p>Yüksek kar marjı olması ülkemize büyük katkı sağlamakta.</p>
+        </div>
+
+
+        <!-- Repeat the above structure for the remaining images and text areas -->
+    </div>
+</body>
+</html>
+
+
+
+<div id="singletonContainer"></div>
+
+<script>
+class Singleton {
+    constructor() {
+        if (Singleton.instance) {
+            return Singleton.instance;
+        }
+
+        this.imagePath = "";
+        this.textContent = "";
+        Singleton.instance = this;
+
+        // Initialize the container for displaying content
+        this.container = document.getElementById("singletonContainer");
+
+        return this;
+    }
+
+    setImagePath(imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    setTextContent(textContent) {
+        this.textContent = textContent;
+    }
+
+    displayContent() {
+        const imageElement = document.createElement("img");
+        imageElement.src = this.imagePath;
+        imageElement.alt = "Image";
+
+        const textElement = document.createElement("p");
+        textElement.textContent = this.textContent;
+
+        // Clear previous content
+        this.container.innerHTML = "";
+
+        // Append new content
+        this.container.appendChild(imageElement);
+        this.container.appendChild(textElement);
+    }
+}
+
+// Example usage
+const singletonInstance = new Singleton();
+
+// Set content for the first section
+singletonInstance.setImagePath("resim kısmı.jpg");
+singletonInstance.setTextContent("Yıllara baktığımızda bor madeni üretimi kapasitesinin genel olarak hep bir artış halinde olduğunu söyleyebiliriz.");
+singletonInstance.displayContent();
+
+// Set content for the second section
+singletonInstance.setImagePath("resim kısmı 2.jpg");
+singletonInstance.setTextContent("Altının sürekli olarak artış eğiliminde olması gerek ham maddesi hemde çıkarılımı konusunda çok fazla emek sarf edilmekte.");
+singletonInstance.displayContent();
+
+// Set content for the third section
+singletonInstance.setImagePath("resim kısmı 3.jpg");
+singletonInstance.setTextContent("Ülkeler bazlı altın dağılımı daire grafiğinde görülmektedir.");
+singletonInstance.displayContent();
